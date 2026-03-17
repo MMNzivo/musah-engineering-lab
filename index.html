@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Musah Engineering Lab</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
-
 <body>
 
 <!-- NAVBAR -->
 <nav class="navbar">
   <h2>Musah Engineering</h2>
   <ul>
-    <li onclick="showTab('home')">Home</li>
-    <li onclick="showTab('dashboard')">Dashboard</li>
-    <li onclick="showTab('projects')">Projects</li>
-    <li onclick="showTab('about')">About</li>
-    <li onclick="showTab('contact')">Contact</li>
+    <li><button onclick="showTab('home')">Home</button></li>
+    <li><button onclick="showTab('dashboard')">Dashboard</button></li>
+    <li><button onclick="showTab('projects')">Projects</button></li>
+    <li><button onclick="showTab('about')">About</button></li>
+    <li><button onclick="showTab('contact')">Contact</button></li>
   </ul>
-
-  <button onclick="toggleTheme()">🌙</button>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 </nav>
 
 <!-- TABS -->
-
 <section id="home" class="tab active">
   <h1>Welcome to Musah Engineering Lab</h1>
   <p>IoT | Embedded Systems | Smart Automation</p>
@@ -31,26 +29,27 @@
 
 <section id="dashboard" class="tab">
   <h1>Dashboard</h1>
-
-  <div class="card">Active Projects: <span id="activeCount"></span></div>
-  <div class="card">Completed Projects: <span id="doneCount"></span></div>
+  <div class="dashboard-grid">
+    <div class="card">Active Projects: <span id="activeCount"></span></div>
+    <div class="card">Completed Projects: <span id="doneCount"></span></div>
+  </div>
 </section>
 
 <section id="projects" class="tab">
   <h1>Projects</h1>
-  <div id="projectList"></div>
+  <div class="project-grid" id="projectList"></div>
 </section>
 
 <section id="about" class="tab">
   <h1>About Me</h1>
-  <p>I am Moses Nzivo, an Electrical & Electronics Engineer focused on IoT systems.</p>
+  <p>I am Musah, an Electrical & Electronics Engineer focused on IoT systems, smart automation, and innovative dashboards.</p>
 </section>
 
 <section id="contact" class="tab">
   <h1>Contact</h1>
-  <p>GitHub: https://github.com/MMNzivo</p>
+  <p>GitHub: <a href="https://github.com/MMNzivo" target="_blank">MMNzivo</a></p>
 </section>
 
-<script src="js/script.js"></script>
+<script src="JS/script.js"></script>
 </body>
 </html>

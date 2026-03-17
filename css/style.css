@@ -1,13 +1,17 @@
+/* GLOBAL STYLES */
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   margin: 0;
   transition: 0.3s;
+  background: #f5f5f5;
+  color: #111;
 }
 
 /* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: #111;
   color: white;
   padding: 15px;
@@ -16,10 +20,19 @@ body {
 .navbar ul {
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar li {
   margin: 0 10px;
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -27,7 +40,7 @@ body {
 .tab {
   display: none;
   padding: 20px;
-  animation: fade 0.4s;
+  animation: fade 0.5s;
 }
 
 .tab.active {
@@ -39,37 +52,84 @@ body {
   to {opacity: 1;}
 }
 
-/* CARDS */
+/* DASHBOARD GRID */
+.dashboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .card {
-  background: #eee;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 10px;
+  background: linear-gradient(120deg, #ff6b6b, #f06595);
+  padding: 20px;
+  flex: 1 1 200px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* PROJECT */
-.project {
-  margin: 10px 0;
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
 }
 
+/* PROJECT GRID */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* PROJECT CARD */
+.project-card {
+  background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  perspective: 1000px;
+  animation: floatCard 2.5s ease-in-out infinite alternate;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+}
+
+/* PROGRESS BAR */
 .progress {
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
   height: 10px;
-  background: #ccc;
-  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
 }
 
 .progress-bar {
-  height: 10px;
-  background: green;
-  border-radius: 5px;
+  height: 100%;
+  background: #00ffcc;
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+
+/* FLOATING ANIMATION */
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
 }
 
 /* DARK MODE */
-.dark {
+body.dark {
   background: #121212;
-  color: white;
+  color: #f5f5f5;
 }
 
-.dark .card {
-  background: #1e1e1e;
+body.dark .card {
+  background: linear-gradient(120deg, #1e1e1e, #333);
+}
+
+body.dark .project-card {
+  background: linear-gradient(135deg, #1f1f2e, #333366);
 }
