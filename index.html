@@ -1,94 +1,56 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<title>Musah Engineering Lab</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<link rel="manifest" href="manifest.json">
-
+  <meta charset="UTF-8">
+  <title>Musah Engineering Lab</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2>Musah Engineering</h2>
+  <ul>
+    <li onclick="showTab('home')">Home</li>
+    <li onclick="showTab('dashboard')">Dashboard</li>
+    <li onclick="showTab('projects')">Projects</li>
+    <li onclick="showTab('about')">About</li>
+    <li onclick="showTab('contact')">Contact</li>
+  </ul>
 
-<h1>Musah Engineering Lab</h1>
-
-<nav>
-
-<a href="#about">About</a>
-<a href="#dashboard">Projects</a>
-<a href="#tracker">Tracker</a>
-<a href="#github">GitHub</a>
-<a href="#contact">Contact</a>
-
+  <button onclick="toggleTheme()">🌙</button>
 </nav>
 
-</header>
+<!-- TABS -->
 
-<section id="about">
-
-<h2>About</h2>
-
-<p>
-Electrical and Electronics Engineering student building
-IoT systems, drones, smart lighting and AI monitoring systems.
-</p>
-
+<section id="home" class="tab active">
+  <h1>Welcome to Musah Engineering Lab</h1>
+  <p>IoT | Embedded Systems | Smart Automation</p>
 </section>
 
+<section id="dashboard" class="tab">
+  <h1>Dashboard</h1>
 
-<section id="dashboard">
-
-<h2>Project Dashboard</h2>
-
-<div id="projectContainer"></div>
-
+  <div class="card">Active Projects: <span id="activeCount"></span></div>
+  <div class="card">Completed Projects: <span id="doneCount"></span></div>
 </section>
 
-
-<section id="tracker">
-
-<h2>Project Progress Tracker</h2>
-
-<canvas id="progressChart"></canvas>
-
+<section id="projects" class="tab">
+  <h1>Projects</h1>
+  <div id="projectList"></div>
 </section>
 
-
-<section id="github">
-
-<h2>Latest GitHub Repositories</h2>
-
-<div id="repoContainer"></div>
-
+<section id="about" class="tab">
+  <h1>About Me</h1>
+  <p>I am Moses Nzivo, an Electrical & Electronics Engineer focused on IoT systems.</p>
 </section>
 
-
-<section id="contact">
-
-<h2>Contact</h2>
-
-<p>Email: nzivommoses@gmail.com</p>
-
+<section id="contact" class="tab">
+  <h1>Contact</h1>
+  <p>GitHub: https://github.com/MMNzivo</p>
 </section>
 
-
-<footer>
-
-<p>© Musah Engineering Lab</p>
-
-</footer>
-
-<script src="js/dashboard.js"></script>
-<script src="js/charts.js"></script>
-<script src="js/github.js"></script>
-
+<script src="script.js"></script>
 </body>
-
 </html>
