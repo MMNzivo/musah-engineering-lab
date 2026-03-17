@@ -1,55 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Musah Engineering Lab</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musah Nzivo Portfolio</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <h2>Musah Engineering</h2>
-  <ul>
-    <li><button onclick="showTab('home')">Home</button></li>
-    <li><button onclick="showTab('dashboard')">Dashboard</button></li>
-    <li><button onclick="showTab('projects')">Projects</button></li>
-    <li><button onclick="showTab('about')">About</button></li>
-    <li><button onclick="showTab('contact')">Contact</button></li>
-  </ul>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+<!-- Custom Cursor -->
+<div id="cursor-ring"></div>
+<div id="cursor-dot"></div>
+
+<!-- Canvas Background -->
+<canvas id="matrix-canvas"></canvas>
+
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="nav-brand-bracket">&lt;</span> MUSAH <span class="nav-brand-bracket">/&gt;</span>
+    <span class="nav-brand-status"><span class="status-dot"></span> ONLINE</span>
+  </div>
+  <div class="nav-links">
+    <a href="#hero" class="nav-link" data-index="01">Home</a>
+    <a href="#about" class="nav-link" data-index="02">About</a>
+    <a href="#skills" class="nav-link" data-index="03">Skills</a>
+    <a href="#projects" class="nav-link" data-index="04">Projects</a>
+    <a href="#contact" class="nav-link" data-index="05">Contact</a>
+  </div>
+  <button class="nav-dl" onclick="triggerCVDownload()">Download CV</button>
 </nav>
 
-<!-- TABS -->
-<section id="home" class="tab active">
-  <h1>Welcome to Musah Engineering Lab</h1>
-  <p>IoT | Embedded Systems | Smart Automation</p>
-</section>
+<!-- Hero Section -->
+<section id="hero" class="section-wrap">
+  <div class="hero-left">
+    <div class="hero-sys-id">USER: <span>Musah Nzivo</span></div>
+    <div class="hero-name-wrap">
+      <h1 class="hero-name" data-text="Musah Nzivo">Musah Nzivo</h1>
+    </div>
+    <div class="hero-role">[FULL STACK DEVELOPER]</div>
+    <p class="hero-bio">
+      Passionate developer and electronics engineer building interactive web and embedded solutions.
+    </p>
+    <div class="hero-btns">
+      <button class="btn-cyber btn-cyber-primary" onclick="triggerCVDownload()">Download CV</button>
+      <a href="#projects" class="btn-cyber btn-cyber-ghost">View Projects</a>
+    </div>
 
-<section id="dashboard" class="tab">
-  <h1>Dashboard</h1>
-  <div class="dashboard-grid">
-    <div class="card">Active Projects: <span id="activeCount"></span></div>
-    <div class="card">Completed Projects: <span id="doneCount"></span></div>
+    <!-- Metrics Panel -->
+    <div class="hero-scan-data">
+      <div class="scan-line-item"><span class="scan-key">City</span><span class="scan-val">Athi River, Kenya</span></div>
+      <div class="scan-line-item"><span class="scan-key">GitHub</span><span class="scan-val">MMNzivo</span></div>
+      <div class="scan-line-item"><span class="scan-key">Email</span><span class="scan-val">musah@example.com</span></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hex-scene">
+      <div class="hex-ring">
+        <div class="hex-face f0">HTML</div>
+        <div class="hex-face f1">CSS</div>
+        <div class="hex-face f2">JS</div>
+        <div class="hex-face f3">Node</div>
+        <div class="hex-face f4">Python</div>
+        <div class="hex-face f5">IoT</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="projects" class="tab">
-  <h1>Projects</h1>
-  <div class="project-grid" id="projectList"></div>
+<!-- About Section -->
+<section id="about" class="section-wrap">
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="section-heading"><span class="hl">About</span> Me</h2>
+      <p><strong>Musah Nzivo</strong> is an Electrical and Electronics Engineering student and full-stack developer creating interactive dashboards, IoT systems, and web applications.</p>
+      <p>Experience in microcontrollers, PCB design, Python, Node.js, and cloud deployment.</p>
+    </div>
+    <div class="cv-panel">
+      <div class="cv-entry">
+        <div class="cv-title">Technical University of Kenya</div>
+        <div class="cv-sub">BSc Electrical & Electronics Engineering</div>
+        <div class="cv-year">2022-2026</div>
+      </div>
+      <div class="cv-download-btn" onclick="triggerCVDownload()">
+        Download CV
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="about" class="tab">
-  <h1>About Me</h1>
-  <p>I am Musah, an Electrical & Electronics Engineer focused on IoT systems, smart automation, and innovative dashboards.</p>
+<!-- Skills Section -->
+<section id="skills" class="section-wrap">
+  <h2 class="section-heading"><span class="hl">Skills</span> Overview</h2>
+  <div class="skills-grid">
+    <div class="skill-node">
+      <div class="skill-header">
+        <div class="skill-icon-wrap">💻</div>
+        <div class="skill-name-block">
+          <div class="skill-name">Web Development</div>
+          <div class="skill-cat">Frontend & Backend</div>
+        </div>
+      </div>
+      <div class="skill-bar-bg">
+        <div class="skill-bar-fill" data-fill="90%"></div>
+      </div>
+    </div>
+    <div class="skill-node">
+      <div class="skill-header">
+        <div class="skill-icon-wrap">🛠</div>
+        <div class="skill-name-block">
+          <div class="skill-name">Electronics</div>
+          <div class="skill-cat">Microcontrollers & IoT</div>
+        </div>
+      </div>
+      <div class="skill-bar-bg">
+        <div class="skill-bar-fill" data-fill="85%"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="tab">
-  <h1>Contact</h1>
+<!-- Projects Section -->
+<section id="projects" class="section-wrap">
+  <h2 class="section-heading"><span class="hl">Projects</span></h2>
+  <div class="tracker-header">
+    <div class="filter-row">
+      <button class="flt on" data-filter="all">All</button>
+      <button class="flt" data-filter="live">Live</button>
+      <button class="flt" data-filter="wip">WIP</button>
+      <button class="flt" data-filter="hold">Hold</button>
+    </div>
+    <div class="tracker-stats">
+      <span>Total Projects: <span class="tstat" id="proj-total">3</span></span>
+    </div>
+  </div>
+  <div class="proj-grid">
+    <div class="proj-card" data-status="live">
+      <div class="proj-top">
+        <span class="proj-id">#001</span>
+        <span class="badge badge-live">Live</span>
+      </div>
+      <div class="proj-title">Interactive Dashboard</div>
+      <div class="proj-desc">Modern web portfolio dashboard with neon cyberpunk theme and floating widgets.</div>
+    </div>
+    <div class="proj-card" data-status="wip">
+      <div class="proj-top">
+        <span class="proj-id">#002</span>
+        <span class="badge badge-wip">WIP</span>
+      </div>
+      <div class="proj-title">IoT Road Monitor</div>
+      <div class="proj-desc">AI-powered pothole detection system for smart transport analytics.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section-wrap">
+  <h2 class="section-heading"><span class="hl">Contact</span> Me</h2>
+  <p>Email: musah@example.com</p>
   <p>GitHub: <a href="https://github.com/MMNzivo" target="_blank">MMNzivo</a></p>
 </section>
 
-<script src="js/script.js"></script>
+<!-- Footer -->
+<footer class="section-wrap">
+  <p>&copy; 2026 Musah Nzivo | Powered by SYS_ONLINE</p>
+</footer>
+
+<!-- JS -->
+<script src="js/main.js"></script>
 </body>
 </html>
