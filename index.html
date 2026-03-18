@@ -8,184 +8,156 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<!-- NAVIGATION -->
-<nav>
-  <a href="#" class="nav-logo"><span class="dot">M</span>usahLab</a>
-  <ul class="nav-links">
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="profile-avatar">
-    <a href="#profile">
-      <img src="assets/profile.jpg" alt="Musah Profile">
-    </a>
-  </div>
-</nav>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav">
-  <span class="mobile-nav-close">Close ✕</span>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<!-- HERO SECTION -->
-<section id="home" class="hero page active">
-  <div>
-    <div class="hero-eyebrow">Welcome to my lab</div>
-    <h1 class="hero-name">
-      <span class="line1">Musah Nzivo</span>
-      <span class="line2">Engineering Lab</span>
-    </h1>
-    <div class="hero-typed"></div>
-    <p class="hero-bio">
-      I am a multi-disciplinary engineer specializing in Frontend, Backend, Mobile, ML/AI, and DevOps. 
-      I design scalable systems and cutting-edge applications.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">See Projects</a>
-      <a href="#contact" class="btn btn-outline">Contact Me</a>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-logo">Musah<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-close">Close ✕</div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 
-  <div class="hero-card">
-    <div class="hero-avatar">
-      <div class="avatar-ph">
-        <img src="assets/profile.jpg" alt="Musah Profile">
-      </div>
-      <div class="avatar-overlay">
-        <div class="avatar-name">Musah Nzivo</div>
-        <div class="avatar-role">Full-Stack Engineer</div>
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div>
+      <div class="hero-eyebrow">Welcome to my Portfolio</div>
+      <h1 class="hero-name">
+        <span class="line1">Musah Nzivo</span>
+        <span class="line2">Engineering Lab</span>
+      </h1>
+      <div class="hero-typed">Full-stack Developer | AI/ML | IoT | DevOps</div>
+      <p class="hero-bio">
+        Multi-disciplinary engineer passionate about creating full-stack solutions, AI/ML models, IoT devices, and automated systems.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">See Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ABOUT SECTION -->
-<section id="about" class="about-sec page">
-  <div class="container about-grid">
-    <div class="about-text">
-      <p>Hi, I am Musah Nzivo, an Electrical and Electronics Engineering student at Technical University of Kenya. I design IoT systems, microcontroller projects, and automated smart devices.</p>
-      <p>My expertise spans embedded programming, Python, PCB design, and creating innovative solutions for smart automation and AI projects.</p>
+    <!-- PROFILE AVATAR -->
+    <div class="hero-card">
+      <a href="#about">
+        <div class="hero-avatar">
+          <img src="assets/profile.jpg" alt="Musah Profile">
+        </div>
+      </a>
+    </div>
+  </section>
 
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-n">5+</div>
-          <div class="stat-l">Years Experience</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-n">20+</div>
-          <div class="stat-l">Projects Completed</div>
-        </div>
-      </div>
-
-      <div class="highlights">
-        <div class="hl">
-          <div class="hl-title">AI-Powered Road Monitoring</div>
-          <div class="hl-desc">A project to detect and report potholes in real time using NodeMCU and AI algorithms.</div>
-        </div>
-        <div class="hl">
-          <div class="hl-title">Bluetooth Smart Speaker</div>
-          <div class="hl-desc">A custom smart speaker with motion sensing and automated lighting integration.</div>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-sec container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="sec-title">About Me</h2>
+        <p>
+          I am Musah Nzivo, an Electrical and Electronics Engineering student with strong experience in microcontroller programming, IoT prototyping, PCB design, and software development.
+        </p>
+        <p>
+          I love developing automated systems, smart devices, and scalable web & mobile applications.
+        </p>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-n">2+</div>
+            <div class="stat-l">Years Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">10+</div>
+            <div class="stat-l">Projects Completed</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SKILLS SECTION -->
-<section id="skills" class="skills-sec page">
-  <div class="container">
-    <div class="sec-label">Skills</div>
-    <h2 class="sec-title">My Technical <span class="hi">Expertise</span></h2>
-
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="skills-sec container">
+    <h2 class="sec-title">Skills</h2>
     <div class="skills-tabs">
-      <div class="s-tab active" data-category="all">All</div>
-      <div class="s-tab" data-category="frontend">Frontend</div>
-      <div class="s-tab" data-category="backend">Backend</div>
-      <div class="s-tab" data-category="embedded">Embedded</div>
-      <div class="s-tab" data-category="ai">AI/ML</div>
+      <div class="s-tab active" data-tab="web">Web</div>
+      <div class="s-tab" data-tab="mobile">Mobile</div>
+      <div class="s-tab" data-tab="iot">IoT</div>
+      <div class="s-tab" data-tab="ml">AI/ML</div>
     </div>
-
     <div class="tag-cloud">
-      <div class="s-tag cyan frontend">HTML</div>
-      <div class="s-tag cyan frontend">CSS</div>
-      <div class="s-tag cyan frontend">JavaScript</div>
-      <div class="s-tag amber backend">Node.js</div>
-      <div class="s-tag amber backend">Python</div>
-      <div class="s-tag green embedded">Arduino</div>
-      <div class="s-tag green embedded">ESP32</div>
-      <div class="s-tag purple ai">Machine Learning</div>
-      <div class="s-tag purple ai">Computer Vision</div>
+      <span class="s-tag cyan">HTML</span>
+      <span class="s-tag cyan">CSS</span>
+      <span class="s-tag cyan">JavaScript</span>
+      <span class="s-tag amber">React</span>
+      <span class="s-tag green">Node.js</span>
+      <span class="s-tag purple">Python</span>
+      <span class="s-tag cyan">Arduino</span>
+      <span class="s-tag amber">ESP32</span>
+      <span class="s-tag green">IoT</span>
+      <span class="s-tag purple">Machine Learning</span>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJECTS SECTION -->
-<section id="projects" class="proj-ov page">
-  <div class="container">
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="proj-ov container">
     <div class="sec-header">
-      <div class="sec-label">Projects</div>
-      <h2 class="sec-title">My Recent Work</h2>
+      <h2 class="sec-title">Projects</h2>
     </div>
     <div class="proj-grid">
       <div class="p-card">
-        <div class="p-status ongoing">Ongoing</div>
-        <div class="p-title">AI RoadSense</div>
-        <div class="p-field">IoT, AI, NodeMCU</div>
-        <div class="p-desc">Real-time pothole detection and alert system for smart cities.</div>
-        <div class="p-bar">
-          <div class="bar-label"><span>Completion</span><span>60%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-fill="60%"></div></div>
-        </div>
+        <div class="p-title">Road Condition Monitoring</div>
+        <div class="p-field">IoT | NodeMCU | SIM800L</div>
+        <div class="p-desc">A real-time road condition monitoring system that detects potholes and sends alerts via IoT devices.</div>
       </div>
 
       <div class="p-card">
-        <div class="p-status completed">Completed</div>
-        <div class="p-title">Smart Bluetooth Speaker</div>
-        <div class="p-field">ESP32, Bluetooth, IoT</div>
-        <div class="p-desc">Automated room speaker with motion-sensor-controlled lighting.</div>
-        <div class="p-bar">
-          <div class="bar-label"><span>Completion</span><span>100%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-fill="100%"></div></div>
-        </div>
+        <div class="p-title">Smart Outdoor Light</div>
+        <div class="p-field">IoT | Solar | Automation</div>
+        <div class="p-desc">Automated solar-powered outdoor lighting system controlled via mobile app and sensors.</div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-title">Bluetooth Smart Speaker</div>
+        <div class="p-field">Embedded | Audio | Control</div>
+        <div class="p-desc">A smart speaker system controlled via Bluetooth with integrated automation and IoT features.</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT SECTION -->
-<section id="contact" class="c-strip page">
-  <div class="c-strip-inner">
-    <div class="c-item">
-      <svg><!-- icon --></svg>
-      <span>Email:</span> <a href="mailto:musah@example.com">musah@example.com</a>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="c-strip">
+    <div class="c-strip-inner container">
+      <div class="c-item">
+        <span>Email:</span>
+        <a href="mailto:musah@example.com">musah@example.com</a>
+      </div>
+      <div class="c-item">
+        <span>Phone:</span>
+        <a href="tel:+254700000000">+254 700 000 000</a>
+      </div>
+      <div class="c-item">
+        <span>GitHub:</span>
+        <a href="https://github.com/MMNzivo" target="_blank">MMNzivo</a>
+      </div>
     </div>
-    <div class="c-item">
-      <svg><!-- icon --></svg>
-      <span>Phone:</span> <a href="tel:+254700000000">+254 700 000 000</a>
-    </div>
-    <div class="c-item">
-      <svg><!-- icon --></svg>
-      <span>Location:</span> Athi River, Kenya</div>
-  </div>
-</section>
+  </section>
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
