@@ -1,70 +1,85 @@
-// main.js
+// ==========================
+// MAIN.JS FOR MUSAH PORTFOLIO
+// ==========================
 
-// Custom Cursor
-const cursorRing = document.getElementById('cursor-ring');
-const cursorDot = document.getElementById('cursor-dot');
-document.addEventListener('mousemove', e => {
-  cursorRing.style.transform = `translate(${e.clientX}px, ${e.clientY}px) rotate(45deg)`;
-  cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-});
+document.addEventListener("DOMContentLoaded", () => {
 
-// Dark/Light Mode
-let darkMode = true;
-function toggleTheme() {
-  darkMode = !darkMode;
-  document.body.classList.toggle('light-theme', !darkMode);
-}
+  /* MOBILE NAVIGATION */
+  const hamburger = document.querySelector(".hamburger");
+  const mobileNav = document.querySelector(".mobile-nav");
+  const mobileClose = document.querySelector(".mobile-nav-close");
 
-// Hero Name Glitch Animation handled by CSS
-
-// Skill Bar Animation
-window.addEventListener('load', () => {
-  document.querySelectorAll('.skill-bar-fill').forEach(el => {
-    const fill = el.dataset.fill;
-    el.style.width = fill;
+  hamburger.addEventListener("click", () => mobileNav.classList.add("open"));
+  mobileClose.addEventListener("click", () => mobileNav.classList.remove("open"));
+  mobileNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => mobileNav.classList.remove("open"));
   });
-});
 
-// CV Download
-function triggerCVDownload() {
-  const link = document.createElement('a');
-  link.href = 'assets/Musah_CV.pdf';
-  link.download = 'Musah_CV.pdf';
-  link.click();
-}
+  /* HERO TYPING EFFECT */
+  const typedEl = document.querySelector(".hero-typed");
+  const roles = ["Frontend Developer", "Backend Developer", "Mobile Developer", "ML/AI Enthusiast", "DevOps Engineer"];
+  let roleIndex = 0;
+  let charIndex = 0;
 
-// Project Filter
-const filters = document.querySelectorAll('.flt');
-const projects = document.querySelectorAll('.proj-card');
-filters.forEach(flt => {
-  flt.addEventListener('click', () => {
-    filters.forEach(f => f.classList.remove('on'));
-    flt.classList.add('on');
-    const filter = flt.dataset.filter;
-    projects.forEach(p => {
-      if(filter === 'all' || p.dataset.status === filter) {
-        p.style.display = 'block';
-      } else {
-        p.style.display = 'none';
-      }
+  function typeRole() {
+    if (!typedEl) return;
+    typedEl.textContent = roles[roleIndex].slice(0, charIndex) + "|";
+    charIndex++;
+    if (charIndex > roles[roleIndex].length) {
+      setTimeout(() => {
+        charIndex = 0;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeRole();
+      }, 1500);
+    } else {
+      setTimeout(typeRole, 120);
+    }
+  }
+  typeRole();
+
+  /* SKILLS TAB SWITCHING */
+  const skillTabs = document.querySelectorAll(".s-tab");
+  const skillCloud = document.querySelector(".tag-cloud");
+
+  skillTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      skillTabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const category = tab.dataset.category;
+      const tags = skillCloud.querySelectorAll(".s-tag");
+      tags.forEach(tag => {
+        if (category === "all" || tag.classList.contains(category)) {
+          tag.style.display = "inline-flex";
+        } else {
+          tag.style.display = "none";
+        }
+      });
     });
   });
-});
 
-// Matrix Background
-const canvas = document.getElementById('matrix-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const cols = canvas.width / 20;
-const ypos = Array(Math.floor(cols)).fill(0);
-function matrix() {
-  ctx.fillStyle = 'rgba(0,0,0,0.05)';
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = '#00ffe7';
-  ypos.forEach((y,i) => {
-    ctx.fillText('01', i*20, y);
-    ypos[i] = y > canvas.height + Math.random()*10000 ? 0 : y + 20;
+  /* PROJECTS PROGRESS BAR ANIMATION */
+  const progressBars = document.querySelectorAll(".bar-fill");
+
+  function animateBars() {
+    progressBars.forEach(bar => {
+      const barTop = bar.getBoundingClientRect().top;
+      const winHeight = window.innerHeight;
+      if (barTop < winHeight - 50) {
+        bar.style.width = bar.dataset.fill;
+      }
+    });
+  }
+  window.addEventListener("scroll", animateBars);
+  animateBars();
+
+  /* SMOOTH SCROLL FOR ANCHORS */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute("href"));
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
   });
-}
-setInterval(matrix, 50);
+
+});

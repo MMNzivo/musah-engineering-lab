@@ -1,180 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Musah Nzivo Portfolio</title>
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- CSS -->
-<link rel="stylesheet" href="css/style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musah Engineering Lab</title>
+  <meta name="description" content="Multi-disciplinary engineer — Frontend, Backend, Mobile, ML/AI, DevOps">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Custom Cursor -->
-<div id="cursor-ring"></div>
-<div id="cursor-dot"></div>
-
-<!-- Canvas Background -->
-<canvas id="matrix-canvas"></canvas>
-
-<!-- Navbar -->
-<nav id="navbar">
-  <div class="nav-brand">
-    <span class="nav-brand-bracket">&lt;</span> MUSAH <span class="nav-brand-bracket">/&gt;</span>
-    <span class="nav-brand-status"><span class="status-dot"></span> ONLINE</span>
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo"><span class="dot">M</span>usahLab</a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
-  <div class="nav-links">
-    <a href="#hero" class="nav-link" data-index="01">Home</a>
-    <a href="#about" class="nav-link" data-index="02">About</a>
-    <a href="#skills" class="nav-link" data-index="03">Skills</a>
-    <a href="#projects" class="nav-link" data-index="04">Projects</a>
-    <a href="#contact" class="nav-link" data-index="05">Contact</a>
+  <div class="profile-avatar">
+    <a href="#profile">
+      <img src="assets/profile.jpg" alt="Musah Profile">
+    </a>
   </div>
-  <button class="nav-dl" onclick="triggerCVDownload()">Download CV</button>
 </nav>
 
-<!-- Hero Section -->
-<section id="hero" class="section-wrap">
-  <div class="hero-left">
-    <div class="hero-sys-id">USER: <span>Musah Nzivo</span></div>
-    <div class="hero-name-wrap">
-      <h1 class="hero-name" data-text="Musah Nzivo">Musah Nzivo</h1>
-    </div>
-    <div class="hero-role">[FULL STACK DEVELOPER]</div>
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <span class="mobile-nav-close">Close ✕</span>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero page active">
+  <div>
+    <div class="hero-eyebrow">Welcome to my lab</div>
+    <h1 class="hero-name">
+      <span class="line1">Musah Nzivo</span>
+      <span class="line2">Engineering Lab</span>
+    </h1>
+    <div class="hero-typed"></div>
     <p class="hero-bio">
-      Passionate developer and electronics engineer building interactive web and embedded solutions.
+      I am a multi-disciplinary engineer specializing in Frontend, Backend, Mobile, ML/AI, and DevOps. 
+      I design scalable systems and cutting-edge applications.
     </p>
-    <div class="hero-btns">
-      <button class="btn-cyber btn-cyber-primary" onclick="triggerCVDownload()">Download CV</button>
-      <a href="#projects" class="btn-cyber btn-cyber-ghost">View Projects</a>
-    </div>
-
-    <!-- Metrics Panel -->
-    <div class="hero-scan-data">
-      <div class="scan-line-item"><span class="scan-key">City</span><span class="scan-val">Athi River, Kenya</span></div>
-      <div class="scan-line-item"><span class="scan-key">GitHub</span><span class="scan-val">MMNzivo</span></div>
-      <div class="scan-line-item"><span class="scan-key">Email</span><span class="scan-val">musah@example.com</span></div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">See Projects</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
     </div>
   </div>
 
-  <div class="hero-right">
-    <div class="hex-scene">
-      <div class="hex-ring">
-        <div class="hex-face f0">HTML</div>
-        <div class="hex-face f1">CSS</div>
-        <div class="hex-face f2">JS</div>
-        <div class="hex-face f3">Node</div>
-        <div class="hex-face f4">Python</div>
-        <div class="hex-face f5">IoT</div>
+  <div class="hero-card">
+    <div class="hero-avatar">
+      <div class="avatar-ph">
+        <img src="assets/profile.jpg" alt="Musah Profile">
+      </div>
+      <div class="avatar-overlay">
+        <div class="avatar-name">Musah Nzivo</div>
+        <div class="avatar-role">Full-Stack Engineer</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="section-wrap">
-  <div class="about-grid">
+<!-- ABOUT SECTION -->
+<section id="about" class="about-sec page">
+  <div class="container about-grid">
     <div class="about-text">
-      <h2 class="section-heading"><span class="hl">About</span> Me</h2>
-      <p><strong>Musah Nzivo</strong> is an Electrical and Electronics Engineering student and full-stack developer creating interactive dashboards, IoT systems, and web applications.</p>
-      <p>Experience in microcontrollers, PCB design, Python, Node.js, and cloud deployment.</p>
-    </div>
-    <div class="cv-panel">
-      <div class="cv-entry">
-        <div class="cv-title">Technical University of Kenya</div>
-        <div class="cv-sub">BSc Electrical & Electronics Engineering</div>
-        <div class="cv-year">2022-2026</div>
-      </div>
-      <div class="cv-download-btn" onclick="triggerCVDownload()">
-        Download CV
-      </div>
-    </div>
-  </div>
-</section>
+      <p>Hi, I am Musah Nzivo, an Electrical and Electronics Engineering student at Technical University of Kenya. I design IoT systems, microcontroller projects, and automated smart devices.</p>
+      <p>My expertise spans embedded programming, Python, PCB design, and creating innovative solutions for smart automation and AI projects.</p>
 
-<!-- Skills Section -->
-<section id="skills" class="section-wrap">
-  <h2 class="section-heading"><span class="hl">Skills</span> Overview</h2>
-  <div class="skills-grid">
-    <div class="skill-node">
-      <div class="skill-header">
-        <div class="skill-icon-wrap">💻</div>
-        <div class="skill-name-block">
-          <div class="skill-name">Web Development</div>
-          <div class="skill-cat">Frontend & Backend</div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-n">5+</div>
+          <div class="stat-l">Years Experience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n">20+</div>
+          <div class="stat-l">Projects Completed</div>
         </div>
       </div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" data-fill="90%"></div>
-      </div>
-    </div>
-    <div class="skill-node">
-      <div class="skill-header">
-        <div class="skill-icon-wrap">🛠</div>
-        <div class="skill-name-block">
-          <div class="skill-name">Electronics</div>
-          <div class="skill-cat">Microcontrollers & IoT</div>
+
+      <div class="highlights">
+        <div class="hl">
+          <div class="hl-title">AI-Powered Road Monitoring</div>
+          <div class="hl-desc">A project to detect and report potholes in real time using NodeMCU and AI algorithms.</div>
+        </div>
+        <div class="hl">
+          <div class="hl-title">Bluetooth Smart Speaker</div>
+          <div class="hl-desc">A custom smart speaker with motion sensing and automated lighting integration.</div>
         </div>
       </div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" data-fill="85%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="skills-sec page">
+  <div class="container">
+    <div class="sec-label">Skills</div>
+    <h2 class="sec-title">My Technical <span class="hi">Expertise</span></h2>
+
+    <div class="skills-tabs">
+      <div class="s-tab active" data-category="all">All</div>
+      <div class="s-tab" data-category="frontend">Frontend</div>
+      <div class="s-tab" data-category="backend">Backend</div>
+      <div class="s-tab" data-category="embedded">Embedded</div>
+      <div class="s-tab" data-category="ai">AI/ML</div>
+    </div>
+
+    <div class="tag-cloud">
+      <div class="s-tag cyan frontend">HTML</div>
+      <div class="s-tag cyan frontend">CSS</div>
+      <div class="s-tag cyan frontend">JavaScript</div>
+      <div class="s-tag amber backend">Node.js</div>
+      <div class="s-tag amber backend">Python</div>
+      <div class="s-tag green embedded">Arduino</div>
+      <div class="s-tag green embedded">ESP32</div>
+      <div class="s-tag purple ai">Machine Learning</div>
+      <div class="s-tag purple ai">Computer Vision</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="proj-ov page">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-label">Projects</div>
+      <h2 class="sec-title">My Recent Work</h2>
+    </div>
+    <div class="proj-grid">
+      <div class="p-card">
+        <div class="p-status ongoing">Ongoing</div>
+        <div class="p-title">AI RoadSense</div>
+        <div class="p-field">IoT, AI, NodeMCU</div>
+        <div class="p-desc">Real-time pothole detection and alert system for smart cities.</div>
+        <div class="p-bar">
+          <div class="bar-label"><span>Completion</span><span>60%</span></div>
+          <div class="bar-track"><div class="bar-fill" data-fill="60%"></div></div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-status completed">Completed</div>
+        <div class="p-title">Smart Bluetooth Speaker</div>
+        <div class="p-field">ESP32, Bluetooth, IoT</div>
+        <div class="p-desc">Automated room speaker with motion-sensor-controlled lighting.</div>
+        <div class="p-bar">
+          <div class="bar-label"><span>Completion</span><span>100%</span></div>
+          <div class="bar-track"><div class="bar-fill" data-fill="100%"></div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Projects Section -->
-<section id="projects" class="section-wrap">
-  <h2 class="section-heading"><span class="hl">Projects</span></h2>
-  <div class="tracker-header">
-    <div class="filter-row">
-      <button class="flt on" data-filter="all">All</button>
-      <button class="flt" data-filter="live">Live</button>
-      <button class="flt" data-filter="wip">WIP</button>
-      <button class="flt" data-filter="hold">Hold</button>
+<!-- CONTACT SECTION -->
+<section id="contact" class="c-strip page">
+  <div class="c-strip-inner">
+    <div class="c-item">
+      <svg><!-- icon --></svg>
+      <span>Email:</span> <a href="mailto:musah@example.com">musah@example.com</a>
     </div>
-    <div class="tracker-stats">
-      <span>Total Projects: <span class="tstat" id="proj-total">3</span></span>
+    <div class="c-item">
+      <svg><!-- icon --></svg>
+      <span>Phone:</span> <a href="tel:+254700000000">+254 700 000 000</a>
     </div>
-  </div>
-  <div class="proj-grid">
-    <div class="proj-card" data-status="live">
-      <div class="proj-top">
-        <span class="proj-id">#001</span>
-        <span class="badge badge-live">Live</span>
-      </div>
-      <div class="proj-title">Interactive Dashboard</div>
-      <div class="proj-desc">Modern web portfolio dashboard with neon cyberpunk theme and floating widgets.</div>
-    </div>
-    <div class="proj-card" data-status="wip">
-      <div class="proj-top">
-        <span class="proj-id">#002</span>
-        <span class="badge badge-wip">WIP</span>
-      </div>
-      <div class="proj-title">IoT Road Monitor</div>
-      <div class="proj-desc">AI-powered pothole detection system for smart transport analytics.</div>
-    </div>
+    <div class="c-item">
+      <svg><!-- icon --></svg>
+      <span>Location:</span> Athi River, Kenya</div>
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section-wrap">
-  <h2 class="section-heading"><span class="hl">Contact</span> Me</h2>
-  <p>Email: musah@example.com</p>
-  <p>GitHub: <a href="https://github.com/MMNzivo" target="_blank">MMNzivo</a></p>
-</section>
-
-<!-- Footer -->
-<footer class="section-wrap">
-  <p>&copy; 2026 Musah Nzivo | Powered by SYS_ONLINE</p>
-</footer>
-
-<!-- JS -->
 <script src="js/main.js"></script>
 </body>
 </html>
