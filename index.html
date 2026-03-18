@@ -5,159 +5,520 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Musah Engineering Lab</title>
   <meta name="description" content="Multi-disciplinary engineer — Frontend, Backend, Mobile, ML/AI, DevOps">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="nav-logo">Musah<span class="dot">.</span></div>
-    <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
 
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav">
-    <div class="mobile-nav-close">Close ✕</div>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+<!-- ============ NAVIGATION ============ -->
+<nav>
+  <div class="nav-logo" onclick="go('home')">MUSAH<span class="dot">.</span>LAB</div>
+  <ul class="nav-links">
+    <li><a data-page="home"     onclick="go('home')">HOME</a></li>
+    <li><a data-page="profile"  onclick="go('profile')">PROFILE</a></li>
+    <li><a data-page="projects" onclick="go('projects')">PROJECTS</a></li>
+    <li><a href="mailto:nzivommoses@gmail.com">CONTACT</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()" id="ham">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile overlay nav -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-close" onclick="toggleNav()">✕ CLOSE</div>
+  <a onclick="go('home');    toggleNav()">HOME</a>
+  <a onclick="go('profile'); toggleNav()">PROFILE</a>
+  <a onclick="go('projects');toggleNav()">PROJECTS</a>
+  <a href="mailto:nzivommoses@gmail.com" onclick="toggleNav()">CONTACT</a>
+</div>
+
+<!-- Floating back button -->
+<div class="fab" id="fab" onclick="goBack()">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="15 18 9 12 15 6"/>
+  </svg>
+</div>
+
+
+<!-- ==========================================
+     HOME PAGE
+=========================================== -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero-section">
+
+    <!-- Small circular profile avatar — top right corner -->
+    <div class="cover-avatar" onclick="go('profile')" title="View Profile">
+      <!--
+        TO ADD YOUR PHOTO: replace the svg + p below with:
+        <img src="photo.jpg" alt="Your Name">
+      -->
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span class="cover-avatar-ring"></span>
+      <span class="cover-avatar-tip">Profile</span>
+    </div>
+
+    <div class="hero container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">ENGINEER · BUILDER · INNOVATOR</div>
+        <h1 class="hero-name">
+          <span class="line1">MUSAH</span>
+          <span class="line2">ENGINEERING</span>
+        </h1>
+        <div class="hero-typed">
+          <span id="typedTxt"></span><span class="cursor"></span>
+        </div>
+        <p class="hero-bio">
+          Multi-disciplinary engineer building production-grade systems across
+          Frontend, Backend, Mobile, ML/AI, and DevOps.
+          Precision engineering meets creative problem-solving.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="go('projects')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+            View Projects
+          </button>
+          <button class="btn btn-outline" onclick="go('profile')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            Full Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT STRIP (below hero) -->
+  <div class="c-strip">
+    <div class="c-strip-inner">
+      <div class="c-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <a href="mailto:nzivommoses@gmail.com">nzivommoses@gmail.com</a>
+      </div>
+      <div class="c-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        <a href="https://github.com/musah-engineering-lab" target="_blank">github.com/musah-engineering-lab</a>
+      </div>
+      <div class="c-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>Your City, Country</span>
+      </div>
+    </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
-    <div>
-      <div class="hero-eyebrow">Welcome to my Portfolio</div>
-      <h1 class="hero-name">
-        <span class="line1">Musah Nzivo</span>
-        <span class="line2">Engineering Lab</span>
-      </h1>
-      <div class="hero-typed">Full-stack Developer | AI/ML | IoT | DevOps</div>
-      <p class="hero-bio">
-        Multi-disciplinary engineer passionate about creating full-stack solutions, AI/ML models, IoT devices, and automated systems.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">See Projects</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
-      </div>
-    </div>
-
-    <!-- PROFILE AVATAR -->
-    <div class="hero-card">
-      <a href="#about">
-        <div class="hero-avatar">
-          <img src="assets/profile.jpg" alt="Musah Profile">
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="about-sec container">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 class="sec-title">About Me</h2>
-        <p>
-          I am Musah Nzivo, an Electrical and Electronics Engineering student with strong experience in microcontroller programming, IoT prototyping, PCB design, and software development.
-        </p>
-        <p>
-          I love developing automated systems, smart devices, and scalable web & mobile applications.
-        </p>
-        <div class="stats-grid">
-          <div class="stat-box">
-            <div class="stat-n">2+</div>
-            <div class="stat-l">Years Experience</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-n">10+</div>
-            <div class="stat-l">Projects Completed</div>
+  <!-- ABOUT -->
+  <section class="about-sec">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="sec-label">ABOUT ME</div>
+          <h2 class="sec-title" style="margin-bottom:1.5rem">Engineering<br><span class="hi">Solutions</span></h2>
+          <p>
+            A multi-disciplinary engineer with deep expertise across the entire technology stack.
+            From crafting pixel-perfect user interfaces to architecting distributed backend systems,
+            I approach every problem with precision and intentionality.
+          </p>
+          <p>
+            My work spans frontend development, backend engineering, mobile applications,
+            machine learning and AI integration, and DevOps infrastructure — giving me a
+            holistic, full-system perspective that most engineers lack.
+          </p>
+          <p>
+            At Musah Engineering Lab, every project is approached as an engineering challenge
+            worth solving completely — systematically, creatively, and with meticulous attention to detail.
+          </p>
+          <div class="stats-grid">
+            <div class="stat-box"><div class="stat-n">5+</div><div class="stat-l">DOMAINS</div></div>
+            <div class="stat-box"><div class="stat-n">10+</div><div class="stat-l">PROJECTS</div></div>
+            <div class="stat-box"><div class="stat-n">3+</div><div class="stat-l">YEARS EXP</div></div>
+            <div class="stat-box"><div class="stat-n">∞</div><div class="stat-l">LEARNING</div></div>
           </div>
         </div>
+        <div class="highlights">
+          <div class="hl" style="border-left-color:var(--cyan)">
+            <div class="hl-title">FRONTEND ENGINEERING</div>
+            <div class="hl-desc">React, Vue, Next.js — building responsive, performant UIs with pixel-perfect precision</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--amber)">
+            <div class="hl-title">BACKEND SYSTEMS</div>
+            <div class="hl-desc">Node.js, Python, Go — architecting scalable APIs, databases, and microservices</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--green)">
+            <div class="hl-title">MOBILE DEVELOPMENT</div>
+            <div class="hl-desc">React Native, Flutter — crafting native-quality cross-platform mobile experiences</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--purple)">
+            <div class="hl-title">ML / AI INTEGRATION</div>
+            <div class="hl-desc">TensorFlow, PyTorch, LLM APIs — embedding intelligence into real-world products</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--cyan)">
+            <div class="hl-title">DEVOPS & INFRASTRUCTURE</div>
+            <div class="hl-desc">Docker, Kubernetes, CI/CD — automating and scaling deployment pipelines</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="skills-sec container">
-    <h2 class="sec-title">Skills</h2>
-    <div class="skills-tabs">
-      <div class="s-tab active" data-tab="web">Web</div>
-      <div class="s-tab" data-tab="mobile">Mobile</div>
-      <div class="s-tab" data-tab="iot">IoT</div>
-      <div class="s-tab" data-tab="ml">AI/ML</div>
-    </div>
-    <div class="tag-cloud">
-      <span class="s-tag cyan">HTML</span>
-      <span class="s-tag cyan">CSS</span>
-      <span class="s-tag cyan">JavaScript</span>
-      <span class="s-tag amber">React</span>
-      <span class="s-tag green">Node.js</span>
-      <span class="s-tag purple">Python</span>
-      <span class="s-tag cyan">Arduino</span>
-      <span class="s-tag amber">ESP32</span>
-      <span class="s-tag green">IoT</span>
-      <span class="s-tag purple">Machine Learning</span>
+  <!-- SKILLS & INTERESTS (floating tabs) -->
+  <section class="skills-sec">
+    <div class="container">
+      <div class="sec-label">SKILLS & INTERESTS</div>
+      <h2 class="sec-title">Tech <span class="hi">Stack</span></h2>
+      <div class="skills-tabs" id="skillsTabs">
+        <button class="s-tab active"  onclick="filterSkills('all',this)">ALL</button>
+        <button class="s-tab"         onclick="filterSkills('frontend',this)">FRONTEND</button>
+        <button class="s-tab"         onclick="filterSkills('backend',this)">BACKEND</button>
+        <button class="s-tab"         onclick="filterSkills('mobile',this)">MOBILE</button>
+        <button class="s-tab"         onclick="filterSkills('ml',this)">ML / AI</button>
+        <button class="s-tab"         onclick="filterSkills('devops',this)">DEVOPS</button>
+        <button class="s-tab"         onclick="filterSkills('interests',this)">INTERESTS</button>
+      </div>
+      <div class="tag-cloud" id="tagCloud"></div>
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
-  <section id="projects" class="proj-ov container">
-    <div class="sec-header">
-      <h2 class="sec-title">Projects</h2>
-    </div>
-    <div class="proj-grid">
-      <div class="p-card">
-        <div class="p-title">Road Condition Monitoring</div>
-        <div class="p-field">IoT | NodeMCU | SIM800L</div>
-        <div class="p-desc">A real-time road condition monitoring system that detects potholes and sends alerts via IoT devices.</div>
+  <!-- PROJECTS OVERVIEW (ongoing only) -->
+  <section class="proj-ov">
+    <div class="container">
+      <div class="sec-header">
+        <div>
+          <div class="sec-label">ACTIVE WORK</div>
+          <h2 class="sec-title">Ongoing <span class="hi">Projects</span></h2>
+        </div>
+        <button class="btn btn-outline" onclick="go('projects')">VIEW ALL PROJECTS →</button>
       </div>
-
-      <div class="p-card">
-        <div class="p-title">Smart Outdoor Light</div>
-        <div class="p-field">IoT | Solar | Automation</div>
-        <div class="p-desc">Automated solar-powered outdoor lighting system controlled via mobile app and sensors.</div>
-      </div>
-
-      <div class="p-card">
-        <div class="p-title">Bluetooth Smart Speaker</div>
-        <div class="p-field">Embedded | Audio | Control</div>
-        <div class="p-desc">A smart speaker system controlled via Bluetooth with integrated automation and IoT features.</div>
-      </div>
+      <div class="proj-grid" id="overviewGrid"></div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="c-strip">
-    <div class="c-strip-inner container">
-      <div class="c-item">
-        <span>Email:</span>
-        <a href="mailto:musah@example.com">musah@example.com</a>
-      </div>
-      <div class="c-item">
-        <span>Phone:</span>
-        <a href="tel:+254700000000">+254 700 000 000</a>
-      </div>
-      <div class="c-item">
-        <span>GitHub:</span>
-        <a href="https://github.com/MMNzivo" target="_blank">MMNzivo</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a onclick="go('home')">HOME</a>
+      <a onclick="go('profile')">PROFILE</a>
+      <a onclick="go('projects')">PROJECTS</a>
+      <a href="mailto:nzivommoses@gmail.com">CONTACT</a>
+    </div>
+    <div>© 2025 <em>MUSAH ENGINEERING LAB</em> · Deployed on GitHub Pages · musah-engineering-lab</div>
+  </footer>
+</div><!-- end #page-home -->
+
+
+<!-- ==========================================
+     PROFILE PAGE
+=========================================== -->
+<div class="page" id="page-profile">
+  <div class="prof-page">
+    <div class="page-hdr">
+      <div class="container">
+        <div class="breadcrumb" onclick="go('home')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          BACK TO HOME
+        </div>
+        <div class="sec-label">PROFILE</div>
+        <h1 class="sec-title">Full <span class="hi">Profile</span></h1>
       </div>
     </div>
-  </section>
 
-  <script src="js/main.js"></script>
+    <div class="container">
+      <div class="prof-grid">
+
+        <!-- LEFT: photo + contact card -->
+        <div class="prof-left">
+          <div class="prof-img">
+            <!--
+              TO ADD YOUR PHOTO: replace the avatar-ph div below with:
+              <img src="photo.jpg" alt="Your Name" style="width:100%;height:100%;object-fit:cover;">
+            -->
+            <div class="avatar-ph">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <div class="avatar-ph-text" style="margin-top:1rem">REPLACE WITH<br>YOUR PHOTO</div>
+            </div>
+          </div>
+
+          <div class="prof-contact-card">
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">EMAIL</div>
+                <div class="c-row-val"><a href="mailto:nzivommoses@gmail.com">nzivommoses@gmail.com</a></div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">LOCATION</div>
+                <div class="c-row-val">Your City, Country</div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">GITHUB</div>
+                <div class="c-row-val"><a href="https://github.com/musah-engineering-lab" target="_blank">musah-engineering-lab</a></div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">LINKEDIN</div>
+                <div class="c-row-val"><a href="#">linkedin.com/in/your-handle</a></div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">PHONE</div>
+                <div class="c-row-val">+XX XXX XXX XXXX</div>
+              </div>
+            </div>
+          </div>
+        </div><!-- end prof-left -->
+
+        <!-- RIGHT: bio + skills + experience -->
+        <div class="prof-right">
+          <div class="prof-name">MUSAH</div>
+          <div class="prof-role">Multi-Disciplinary Engineer · Musah Engineering Lab</div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">ABOUT</div>
+            <p>
+              [Write your personal bio here. Describe your background, engineering philosophy,
+              the types of problems you're passionate about solving, and what makes you a unique
+              engineer. Keep it authentic — let collaborators and employers understand who you are
+              beyond the code.]
+            </p>
+          </div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">TECHNICAL PROFICIENCY</div>
+            <div id="profSkillBars"></div>
+          </div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">EDUCATION</div>
+            <div class="exp-card" style="border-left-color:var(--cyan)">
+              <div class="exp-title">YOUR DEGREE / CERTIFICATION</div>
+              <div class="exp-meta">Institution Name · 20XX – 20XX</div>
+              <div class="exp-desc">Brief description of your course of study and key achievements.</div>
+            </div>
+          </div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">EXPERIENCE</div>
+            <div class="exp-card">
+              <div class="exp-title">ROLE TITLE</div>
+              <div class="exp-meta">Company / Organization · 20XX – Present</div>
+              <div class="exp-desc">
+                Description of your responsibilities and impact. Quantify results where possible —
+                e.g. "Reduced API response time by 40% through query optimization."
+              </div>
+            </div>
+            <div class="exp-card">
+              <div class="exp-title">PREVIOUS ROLE</div>
+              <div class="exp-meta">Company / Organization · 20XX – 20XX</div>
+              <div class="exp-desc">Description of responsibilities and achievements.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem; flex-wrap:wrap">
+            <!--
+              TO LINK YOUR CV: change href="#" to href="Musah_CV.pdf"
+              and upload Musah_CV.pdf to your GitHub repo root.
+            -->
+            <a href="#" class="btn btn-primary" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              DOWNLOAD CV
+            </a>
+            <a href="mailto:nzivommoses@gmail.com" class="btn btn-outline">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              SEND EMAIL
+            </a>
+          </div>
+        </div><!-- end prof-right -->
+
+      </div>
+    </div>
+  </div>
+</div><!-- end #page-profile -->
+
+
+<!-- ==========================================
+     PROJECTS PAGE
+=========================================== -->
+<div class="page" id="page-projects">
+  <div class="projs-page">
+    <div class="page-hdr">
+      <div class="container">
+        <div class="breadcrumb" onclick="go('home')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          BACK TO HOME
+        </div>
+        <div class="sec-label">ALL PROJECTS</div>
+        <h1 class="sec-title">Projects <span class="hi">Lab</span></h1>
+        <p style="color:var(--text-dim);font-size:0.9rem;margin-top:0.75rem;font-family:var(--mono)">
+          Classified by domain · Each tab recognizes skills used
+        </p>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top:3rem; padding-bottom:4rem">
+      <!-- Field filter tabs -->
+      <div class="field-tabs" id="fieldTabs">
+        <button class="f-tab active" onclick="filterProjects('all',this)">
+          ALL <span class="f-count" id="cnt-all">0</span>
+        </button>
+        <button class="f-tab" onclick="filterProjects('frontend',this)">
+          FRONTEND <span class="f-count" id="cnt-frontend">0</span>
+        </button>
+        <button class="f-tab" onclick="filterProjects('backend',this)">
+          BACKEND <span class="f-count" id="cnt-backend">0</span>
+        </button>
+        <button class="f-tab" onclick="filterProjects('mobile',this)">
+          MOBILE <span class="f-count" id="cnt-mobile">0</span>
+        </button>
+        <button class="f-tab" onclick="filterProjects('ml',this)">
+          ML / AI <span class="f-count" id="cnt-ml">0</span>
+        </button>
+        <button class="f-tab" onclick="filterProjects('devops',this)">
+          DEVOPS <span class="f-count" id="cnt-devops">0</span>
+        </button>
+      </div>
+
+      <!-- Project cards injected by main.js -->
+      <div class="proj-grid" id="allGrid"></div>
+    </div>
+  </div>
+</div><!-- end #page-projects -->
+
+
+<!-- ==========================================
+     PROJECT DETAIL PAGE
+=========================================== -->
+<div class="page" id="page-detail">
+  <div class="detail-page">
+    <div class="detail-hdr">
+      <div class="container">
+        <div class="breadcrumb" onclick="go('projects')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          BACK TO PROJECTS
+        </div>
+        <!-- Injected by main.js -->
+        <div id="d-status"  style="margin-top:1rem"></div>
+        <h1 class="sec-title" id="d-title" style="margin-top:0.6rem; margin-bottom:0.3rem"></h1>
+        <div id="d-field" style="font-family:var(--mono);font-size:0.7rem;color:var(--amber);letter-spacing:0.1em"></div>
+        <div id="d-tags"  style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.75rem"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="detail-grid">
+
+        <!-- Main content -->
+        <div>
+          <div class="d-section">
+            <div class="d-sec-title">OVERVIEW</div>
+            <p id="d-overview"></p>
+          </div>
+          <div class="d-section">
+            <div class="d-sec-title">OBJECTIVES</div>
+            <ul id="d-objectives"></ul>
+          </div>
+          <div class="d-section">
+            <div class="d-sec-title">TECH STACK & APPROACH</div>
+            <p id="d-approach"></p>
+          </div>
+          <div class="d-section">
+            <div class="d-sec-title">PROGRESS MILESTONES</div>
+            <div class="milestone-list" id="d-milestones"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="detail-sidebar">
+          <div class="sb-card">
+            <div class="sb-title">PROJECT INFO</div>
+            <div id="d-info"></div>
+          </div>
+          <div class="sb-card">
+            <div class="sb-title">COMPLETION</div>
+            <div class="bar-label">
+              <span style="font-family:var(--mono);font-size:0.65rem;color:var(--text-muted)">PROGRESS</span>
+              <span id="d-pct" style="font-family:var(--mono);font-size:0.65rem;color:var(--cyan)">0%</span>
+            </div>
+            <div class="bar-track" style="height:6px">
+              <div class="bar-fill" id="d-bar" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="sb-card" id="d-links-card">
+            <div class="sb-title">LINKS</div>
+            <div id="d-links"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- end #page-detail -->
+
+
+<!-- JavaScript — loaded last so DOM is ready -->
+<script src="main.js"></script>
+
 </body>
 </html>
