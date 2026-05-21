@@ -1,194 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Musah | Engineering Portfolio</title>
-
-  <link rel="stylesheet" href="style.css"/>
-
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;400;600&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moses Muema Nzivo — Embedded Systems &amp; IoT Engineer</title>
+  <meta name="description" content="Electrical &amp; Electronics Engineering student at TUK — Embedded Systems, IoT, PCB Design, Firmware, Smart Mobility">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- ============ NAVIGATION ============ -->
 <nav>
-  <div class="nav-logo" onclick="go('home')">
-    MUSAH<span class="dot">.</span>ENGINEERING
-  </div>
-
+  <div class="nav-logo" onclick="go('home')">NZIVO<span class="dot">.</span>ENG</div>
   <ul class="nav-links">
-    <li><a data-page="home" onclick="go('home')">HOME</a></li>
-    <li><a data-page="profile" onclick="go('profile')">PROFILE</a></li>
+    <li><a data-page="home"     onclick="go('home')">HOME</a></li>
+    <li><a data-page="profile"  onclick="go('profile')">PROFILE</a></li>
     <li><a data-page="projects" onclick="go('projects')">PROJECTS</a></li>
+    <li><a href="mailto:nzivommoses@gmail.com">CONTACT</a></li>
   </ul>
-
-  <div class="hamburger" onclick="toggleNav()">
+  <div class="hamburger" onclick="toggleNav()" id="ham">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<div id="mobileNav" class="mobile-nav">
-  <div class="mobile-nav-close" onclick="toggleNav()">CLOSE</div>
-  <a onclick="go('home')">HOME</a>
-  <a onclick="go('profile')">PROFILE</a>
-  <a onclick="go('projects')">PROJECTS</a>
+<!-- Mobile overlay nav -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-close" onclick="toggleNav()">✕ CLOSE</div>
+  <a onclick="go('home');    toggleNav()">HOME</a>
+  <a onclick="go('profile'); toggleNav()">PROFILE</a>
+  <a onclick="go('projects');toggleNav()">PROJECTS</a>
+  <a href="mailto:nzivommoses@gmail.com" onclick="toggleNav()">CONTACT</a>
 </div>
 
-<div id="fab" class="fab" onclick="goBack()">⟵</div>
+<!-- Floating back button -->
+<div class="fab" id="fab" onclick="goBack()">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="15 18 9 12 15 6"/>
+  </svg>
+</div>
 
-<!-- HOME -->
-<section id="page-home" class="page active">
+<!-- ==========================================
+     HOME PAGE
+=========================================== -->
+<div class="page active" id="page-home">
 
-  <div class="hero-section">
-    <div class="hero">
-      <div>
-        <div class="hero-eyebrow">ELECTRICAL & ELECTRONICS ENGINEER</div>
+  <!-- HERO -->
+  <section class="hero-section">
+    <!-- Small circular profile avatar — top right corner -->
+    <div class="cover-avatar" onclick="go('profile')" title="View Profile">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span class="cover-avatar-ring"></span>
+      <span class="cover-avatar-tip">Profile</span>
+    </div>
 
+    <div class="hero container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">ENGINEER · BUILDER · INNOVATOR</div>
         <h1 class="hero-name">
-          <span class="line1">Moses Muema</span>
-          <span class="line2">MUSAH</span>
+          <span class="line1">MOSES</span>
+          <span class="line2">MUEMA NZIVO</span>
         </h1>
-
         <div class="hero-typed">
           <span id="typedTxt"></span><span class="cursor"></span>
         </div>
-
         <p class="hero-bio">
-          Building IoT systems, AI-driven infrastructure, embedded systems, and automation solutions for real-world engineering problems.
+          Electrical &amp; Electronics Engineering student at the Technical University of Kenya,
+          building hands-on expertise in embedded systems, IoT engineering, PCB design,
+          smart energy, and electric mobility. Precision hardware meets intelligent software.
         </p>
-
         <div class="hero-actions">
-          <a class="btn btn-primary" onclick="go('projects')">VIEW PROJECTS</a>
-          <a class="btn btn-outline" onclick="go('profile')">ABOUT ME</a>
+          <button class="btn btn-primary" onclick="go('projects')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+            View Projects
+          </button>
+          <button class="btn btn-outline" onclick="go('profile')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            Full Profile
+          </button>
         </div>
       </div>
     </div>
-  </div>
-
-  <section class="proj-ov container">
-    <div class="sec-header">
-      <div>
-        <div class="sec-label">ACTIVE WORK</div>
-        <h2 class="sec-title">Engineering Systems</h2>
-      </div>
-    </div>
-
-    <div id="overviewGrid" class="proj-grid"></div>
   </section>
 
-</section>
-
-<!-- PROFILE -->
-<section id="page-profile" class="page prof-page">
-
-  <div class="page-hdr container">
-    <div class="breadcrumb" onclick="go('home')">← BACK</div>
-    <h1 class="prof-name">Musah</h1>
-    <div class="prof-role">IoT | Embedded Systems | AI Engineering</div>
+  <!-- CONTACT STRIP -->
+  <div class="c-strip">
+    <div class="c-strip-inner">
+      <div class="c-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <a href="mailto:nzivommoses@gmail.com">nzivommoses@gmail.com</a>
+      </div>
+      <div class="c-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        <a href="https://github.com/nzivommoses" target="_blank">github.com/nzivommoses</a>
+      </div>
+      <div class="c-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>Athi River, Kenya</span>
+      </div>
+    </div>
   </div>
 
-  <div class="container prof-grid">
-
-    <div class="prof-left">
-      <div class="prof-img">
-        <div class="avatar-ph">ENGINEERING PROFILE</div>
+  <!-- ABOUT -->
+  <section class="about-sec">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="sec-label">ABOUT ME</div>
+          <h2 class="sec-title" style="margin-bottom:1.5rem">Engineering<br><span class="hi">Solutions</span></h2>
+          <p>
+            A motivated Electrical and Electronics Engineering student at the Technical University of Kenya
+            with strong hands-on experience in embedded systems, IoT engineering, PCB design, energy systems,
+            telematics, and smart mobility technologies.
+          </p>
+          <p>
+            Skilled in microcontroller programming (ESP32, ESP8266, NodeMCU, D1 Mini), circuit design,
+            firmware integration, wireless protocols, and real-time monitoring systems — with a passion
+            for building locally engineered smart solutions.
+          </p>
+          <p>
+            Every project is approached as an engineering challenge worth solving completely —
+            systematically, creatively, and with meticulous attention to hardware and software detail.
+          </p>
+          <div class="stats-grid">
+            <div class="stat-box"><div class="stat-n">5+</div><div class="stat-l">DOMAINS</div></div>
+            <div class="stat-box"><div class="stat-n">4+</div><div class="stat-l">PROJECTS</div></div>
+            <div class="stat-box"><div class="stat-n">3+</div><div class="stat-l">YEARS EXP</div></div>
+            <div class="stat-box"><div class="stat-n">∞</div><div class="stat-l">LEARNING</div></div>
+          </div>
+        </div>
+        <div class="highlights">
+          <div class="hl" style="border-left-color:var(--cyan)">
+            <div class="hl-title">EMBEDDED SYSTEMS</div>
+            <div class="hl-desc">ESP32, NodeMCU, D1 Mini — writing firmware and integrating sensors for real-world IoT applications</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--amber)">
+            <div class="hl-title">PCB DESIGN</div>
+            <div class="hl-desc">KiCad — designing, reviewing, and prototyping production-ready circuit boards</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--green)">
+            <div class="hl-title">WIRELESS COMMUNICATIONS</div>
+            <div class="hl-desc">ESP-NOW, Bluetooth, GSM / SIM800L — building robust wireless sensor and control networks</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--purple)">
+            <div class="hl-title">SMART ENERGY & EV</div>
+            <div class="hl-desc">Solar tracking, PAYGO EV concepts, CAN logging — engineering sustainable mobility and energy solutions</div>
+          </div>
+          <div class="hl" style="border-left-color:var(--cyan)">
+            <div class="hl-title">AI & EDGE ANALYTICS</div>
+            <div class="hl-desc">TensorFlow Lite, sensor fusion — embedding intelligence into resource-constrained hardware</div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="prof-contact-card">
-        <div class="c-row"><span>📍</span><div class="c-row-val">Nairobi, Kenya</div></div>
-        <div class="c-row"><span>📧</span><div class="c-row-val">musah.engineering@gmail.com</div></div>
-        <div class="c-row"><span>🎓</span><div class="c-row-val">Technical University of Kenya</div></div>
+  <!-- SKILLS & INTERESTS -->
+  <section class="skills-sec">
+    <div class="container">
+      <div class="sec-label">SKILLS & INTERESTS</div>
+      <h2 class="sec-title">Tech <span class="hi">Stack</span></h2>
+      <div class="skills-tabs" id="skillsTabs">
+        <button class="s-tab active"  onclick="filterSkills('all',this)">ALL</button>
+        <button class="s-tab"         onclick="filterSkills('frontend',this)">SOFTWARE</button>
+        <button class="s-tab"         onclick="filterSkills('backend',this)">CONNECTIVITY</button>
+        <button class="s-tab"         onclick="filterSkills('mobile',this)">MICROCONTROLLERS</button>
+        <button class="s-tab"         onclick="filterSkills('ml',this)">AI / EDGE</button>
+        <button class="s-tab"         onclick="filterSkills('devops',this)">HARDWARE</button>
+        <button class="s-tab"         onclick="filterSkills('interests',this)">INTERESTS</button>
+      </div>
+      <div class="tag-cloud" id="tagCloud"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS OVERVIEW (ongoing only) -->
+  <section class="proj-ov">
+    <div class="container">
+      <div class="sec-header">
+        <div>
+          <div class="sec-label">ACTIVE WORK</div>
+          <h2 class="sec-title">Ongoing <span class="hi">Projects</span></h2>
+        </div>
+        <button class="btn btn-outline" onclick="go('projects')">VIEW ALL PROJECTS →</button>
+      </div>
+      <div class="proj-grid" id="overviewGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a onclick="go('home')">HOME</a>
+      <a onclick="go('profile')">PROFILE</a>
+      <a onclick="go('projects')">PROJECTS</a>
+      <a href="mailto:nzivommoses@gmail.com">CONTACT</a>
+    </div>
+    <div>© 2025 <em>MOSES MUEMA NZIVO</em> · EEE Student @ Technical University of Kenya · Athi River, Kenya</div>
+  </footer>
+</div><!-- end #page-home -->
+
+<!-- ==========================================
+     PROFILE PAGE
+=========================================== -->
+<div class="page" id="page-profile">
+  <div class="prof-page">
+    <div class="page-hdr">
+      <div class="container">
+        <div class="breadcrumb" onclick="go('home')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          BACK TO HOME
+        </div>
+        <div class="sec-label">PROFILE</div>
+        <h1 class="sec-title">Full <span class="hi">Profile</span></h1>
       </div>
     </div>
 
-    <div>
-      <div class="prof-section">
-        <div class="prof-sec-title">ABOUT</div>
-        <p>
-          Electrical and Electronics Engineering student specializing in IoT systems, embedded design,
-          AI integration, and smart infrastructure systems including EV telematics and solar automation.
-        </p>
-      </div>
+    <div class="container">
+      <div class="prof-grid">
 
-      <div class="prof-section">
-        <div class="prof-sec-title">SKILLS</div>
-        <div id="profSkillBars"></div>
+        <!-- LEFT: photo + contact card -->
+        <div class="prof-left">
+          <div class="prof-img">
+            <!--
+              TO ADD YOUR PHOTO: replace the avatar-ph div below with:
+              <img src="photo.jpg" alt="Moses Muema Nzivo" style="width:100%;height:100%;object-fit:cover;">
+            -->
+            <div class="avatar-ph">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <div class="avatar-ph-text" style="margin-top:1rem">REPLACE WITH<br>YOUR PHOTO</div>
+            </div>
+          </div>
+
+          <div class="prof-contact-card">
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">EMAIL</div>
+                <div class="c-row-val"><a href="mailto:nzivommoses@gmail.com">nzivommoses@gmail.com</a></div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">LOCATION</div>
+                <div class="c-row-val">Athi River, Kenya</div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">GITHUB</div>
+                <div class="c-row-val"><a href="https://github.com/nzivommoses" target="_blank">github.com/nzivommoses</a></div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">LINKEDIN</div>
+                <div class="c-row-val"><a href="#">linkedin.com/in/your-handle</a></div>
+              </div>
+            </div>
+            <div class="c-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <div class="c-row-info">
+                <div class="c-row-label">PHONE</div>
+                <div class="c-row-val">+254 XXX XXX XXX</div>
+              </div>
+            </div>
+          </div>
+        </div><!-- end prof-left -->
+
+        <!-- RIGHT: bio + skills + experience -->
+        <div class="prof-right">
+          <div class="prof-name">MOSES MUEMA NZIVO</div>
+          <div class="prof-role">Electrical &amp; Electronics Engineering Student · Technical University of Kenya</div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">ABOUT</div>
+            <p>
+              Motivated Electrical and Electronics Engineering student at the Technical University of Kenya
+              with strong interest and hands-on experience in embedded systems, IoT engineering, PCB design,
+              energy systems, telematics, and smart mobility technologies. Skilled in microcontroller
+              programming, circuit design, prototyping, firmware integration, and real-time monitoring systems.
+            </p>
+            <p style="margin-top:0.75rem">
+              Passionate about developing locally engineered smart solutions for sustainable energy, electric
+              mobility, and industrial automation. Experienced in building IoT and telematics projects
+              involving NodeMCU, ESP32, D1 Mini, SIM800L, sensor integration, and wireless monitoring systems.
+            </p>
+          </div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">TECHNICAL PROFICIENCY</div>
+            <div id="profSkillBars"></div>
+          </div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">EDUCATION</div>
+            <div class="exp-card" style="border-left-color:var(--cyan)">
+              <div class="exp-title">BSc. ELECTRICAL AND ELECTRONICS ENGINEERING</div>
+              <div class="exp-meta">Technical University of Kenya (TUK) · 2022 – Present</div>
+              <div class="exp-desc">
+                Relevant areas of study: Embedded Systems, Control Systems, Digital &amp; Analogue Electronics,
+                Signals and Systems, Power Systems, Telecommunication Systems, Microprocessor Systems.
+              </div>
+            </div>
+          </div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">EXPERIENCE</div>
+            <div class="exp-card">
+              <div class="exp-title">BRAND AMBASSADOR</div>
+              <div class="exp-meta">Safaricom · Kenya</div>
+              <div class="exp-desc">
+                Engaged with customers and promoted digital solutions and services. Developed strong
+                communication, teamwork, and customer engagement skills. Worked in fast-paced environments
+                requiring professionalism and adaptability.
+              </div>
+            </div>
+          </div>
+
+          <div class="prof-section">
+            <div class="prof-sec-title">ACHIEVEMENTS</div>
+            <div class="exp-card" style="border-left-color:var(--amber)">
+              <div class="exp-title">IEEE AFRICAN SUMMIT — PROPOSAL SUBMISSION</div>
+              <div class="exp-meta">IEEE African Summit on Climate and Entrepreneurship</div>
+              <div class="exp-desc">
+                Submitted a research proposal on AI-powered road condition monitoring for smart infrastructure.
+                Developed multiple independent embedded systems and IoT prototypes; continuously self-learning
+                in firmware development, PCB design, and intelligent hardware systems.
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem; flex-wrap:wrap">
+            <!--
+              TO LINK YOUR CV: change href="#" to href="Moses_Nzivo_CV.pdf"
+              and upload the PDF to your GitHub repo root.
+            -->
+            <a href="#" class="btn btn-primary" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              DOWNLOAD CV
+            </a>
+            <a href="mailto:nzivommoses@gmail.com" class="btn btn-outline">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              SEND EMAIL
+            </a>
+          </div>
+        </div><!-- end prof-right -->
+
       </div>
     </div>
-
   </div>
+</div><!-- end #page-profile -->
 
-</section>
-
-<!-- PROJECTS -->
-<section id="page-projects" class="page projs-page container">
-
-  <h2 class="sec-title">Projects</h2>
-
-  <div class="field-tabs">
-    <button class="f-tab active" onclick="filterProjects('all', this)">ALL</button>
-    <button class="f-tab" onclick="filterProjects('ml', this)">AI / ML</button>
-    <button class="f-tab" onclick="filterProjects('frontend', this)">SYSTEMS</button>
-    <button class="f-tab" onclick="filterProjects('mobile', this)">IOT</button>
-  </div>
-
-  <div id="allGrid" class="proj-grid"></div>
-
-</section>
-
-<!-- DETAIL -->
-<section id="page-detail" class="page detail-page container">
-
-  <div class="detail-hdr">
-    <div id="d-status"></div>
-    <h1 id="d-title"></h1>
-    <div id="d-field"></div>
-  </div>
-
-  <div class="detail-grid">
-
-    <div>
-      <div class="d-section">
-        <div class="d-sec-title">OVERVIEW</div>
-        <p id="d-overview"></p>
-      </div>
-
-      <div class="d-section">
-        <div class="d-sec-title">APPROACH</div>
-        <p id="d-approach"></p>
-      </div>
-
-      <div class="d-section">
-        <div class="d-sec-title">OBJECTIVES</div>
-        <ul id="d-objectives"></ul>
-      </div>
-
-      <div class="d-section">
-        <div class="d-sec-title">MILESTONES</div>
-        <div id="d-milestones"></div>
-      </div>
-    </div>
-
-    <div class="detail-sidebar">
-      <div class="sb-card">
-        <div class="sb-title">INFO</div>
-        <div id="d-info"></div>
-      </div>
-
-      <div class="sb-card">
-        <div class="sb-title">LINKS</div>
-        <div id="d-links"></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  Built by <em>Musah</em>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+<!-- ==========================================
+     PROJECTS PAGE
+=========================================== -->
+<div class="page" id="page-projects">
+  <div class="projs-page">
+    <div class="page-hdr">
+      <div class="container">
+        <div class="breadcrumb" onclick="go('home')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          BACK TO HOME
+        </div>
+        <div class="sec-label">ALL
